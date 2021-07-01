@@ -1,0 +1,41 @@
+What is ZCoin?
+
+ZCoin is an Online Currency that can be bought for a actual Real word money, it will be the
+only medium of transaction in the ZUniverse(ZVerse). Users can load up their accounts
+with ZCoins end use it to purchase product licenses and other in verse entities. ZCoins
+can also be transferred across accounts.
+
+1. User can create an Account in ZCoin Exchange, user must provide below details in order to create account in ZCoin Exchange
+  Full name
+  Email id
+  mobile number
+  H_ID (Its an unique ID, given to humans by the government) 
+  Password (password should match the certain conditions listed below)
+  Initial Real Currency (RC) Deposit.
+2. Login
+	*Agent Login(ZE)
+	 1.Only ZE can login here
+	 2.ZE should provide email id and password to login 
+	*User Login(Normal user)
+	 1.User should provide email and password to login 
+	 2.we must not allow user to login before ZE approval after signup.
+3. ZE-User Management Panel (Users called ZEmployee(ZE) should be present)
+	*ZE gets list of all User creation request and has option to approve and reject.
+		1.once ZE approves a ZID is allocated for a User.
+		2.ZID is a account ID which is used to identify user and for
+transactions. 
+	*ZE can fetch all the transactions done by a user for Legal purposes.
+4. User-Account Management Panel
+	*Account Details
+		i. User submitted Information and ZID.
+		ii. Display user wallets(RC & ZCoin wallets with balance)..
+
+	*Transaction history of user 
+		i. User can view both RC and ZC transactions.
+	*Change password RC Transactions
+		i. User should deposit and withdraw RC
+		ii. RC to ZCoin conversion rates are not fixed and can vary over time.
+		iii. ZE controls the exchange rate of RC to ZCoin.(RC is 2 times ZCoin) 
+	*ZCoin Transactions
+		i.User can transfer ZCoin to another User's account using ZID 
+		ii.ZCoin to RC for withdraw comes with a 0.15% commission.

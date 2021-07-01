@@ -1,0 +1,22 @@
+Print the shortest duration between the time values given in the input array. The time values are given in the format (hour:minute:second). 
+The time values in the array are in no particular order.
+Example:
+Input : (12:34:55,1:12:13.8:12:15}
+output:
+4:22:40
+Explanation:
+12:34:55 8:12:15= 4:22:40
+12:34:55 1:12:13 11:22:42
+8:12:15-1:12:13-7:0:02 smallest is 4:22:40
+
+Input Format:
+The first line of the input consists of an integer, N that corresponds to the number of durations in the input array.
+The next N lines of the input corresponds to the durations in a given array. Assume that the duration are given in the format: hours:minutes:seconds
+Output Format:
+Output is to display the shortest time duration (in hours:minutes:seconds) of all values in a given array Refer to the sample input and output for formatting specifications.
+Sample Input 1:
+3
+12:34:55
+1:12:13 8:12:15
+Sample Output 1:
+4:22:40

@@ -1,0 +1,37 @@
+Remove a fragment
+
+Write a program to find a fragment that occurs in all strings.
+
+Note: If you are writing this program in JAVA, don't use built-in functions like split(), indexOf(), replace(), substring(), etc present in String Class. Do not hard code the output.
+
+Example:
+
+Given three strings like:
+
+s1="Every morning I want to do exercise
+regularly"
+s2= "Every morning I want to do meditation
+without fail" 
+S3= "It is important that I want to be happy
+always"
+
+Then the
+Common fragment="I want to".
+
+Explanation:
+
+"I want to is the common fragment found in all three sentences.
+
+Input Format:
+First line of the input is an integer n, which corresponds to the number of strings. Second line of the Input consists of n strings line by line
+Output Format:
+Display the common fragment. Refer to the sample input and output for formatting specifications.
+Sample Input:
+3
+Every morning I want to do exercise regularly 
+Every morning I want to do meditation without fail 
+It is important that I want to be happy always
+
+Sample Output:
+
+I want to
