@@ -13,11 +13,11 @@ public class ZCoinExchange {
 		ArrayList<String>waitinglist=new ArrayList<String>();
 			String mailid="azg@gmail.com";
 			AccountDetails emp1=new AccountDetails();
-			emp1.setdetails("Azhagu",2262,"Asdf*2dfs");
+			emp1.setDetails("Azhagu",2262,"Asdf*2dfs");
 			employee.put(mailid,emp1);
 			mailid="qwe@gmail.com";
 			AccountDetails emp2=new AccountDetails();
-			emp2.setdetails("Sundaram",23234,"Asdf<2dfs");
+			emp2.setDetails("Sundaram",23234,"Asdf<2dfs");
 			employee.put(mailid, emp2);
 		while(true) {
 		System.out.println("1.Signup\n2.Login\n3.Exit");
@@ -27,7 +27,7 @@ public class ZCoinExchange {
 		{
 			System.out.println("Enter your mail id:");
 			String mail=scan.nextLine();
-			account.put(mail,new AccountDetails().CustomerDetails(mail));
+			account.put(mail,new AccountDetails().customerDetails(mail));
 			waitinglist.add(mail);
 		}
 		else if(a==2) {
@@ -45,19 +45,19 @@ public class ZCoinExchange {
 					scan.nextLine();
 					switch(user){
 						case 1:
-							UserDetails.getuserdetails(mail);
+							UserDetails.getUserDetails(mail);
 							break;
 						case 2:
-							UserDetails.transactionhistory(mail);
+							UserDetails.transactionHistory(mail);
 							break;
 						case 3:
-							account.get(mail).changepassword(UserDetails.setpassword(account.get(mail).getname(),mail));
+							account.get(mail).changePassword(UserDetails.setPassword(account.get(mail).getName(),mail));
 							break;
 						case 4:
-							UserDetails.rctransaction(mail);
+							UserDetails.rcTransaction(mail);
 							break;
 						case 5:
-							UserDetails.zcointransaction(mail);
+							UserDetails.zcoinTransaction(mail);
 							break;
 					}
 					}
@@ -71,11 +71,11 @@ public class ZCoinExchange {
 					System.out.println("1.ZID Given\n2.Change coversion rate");
 					int id=scan.nextInt();
 					if(id==1) {
-						EmployeePanel.idgiven(waitinglist);
+						EmployeePanel.idGiven(waitinglist);
 						waitinglist.clear();
 					}
 					else if(id==2) {
-						account.get(mail).changerate();
+						account.get(mail).changeRate();
 					}
 			}
 			else if(login==3) {
@@ -97,38 +97,38 @@ class AccountDetails{
 	ArrayList<String>rctranshistory=new ArrayList<String>();
 	ArrayList<String>zcointranshistory=new ArrayList<String>();
 	static Scanner scan=new Scanner(System.in);
-	public void setdetails(String name,int zid,String password) {
+	public void setDetails(String name,int zid,String password) {
 		this.name=name;
 		this.Zid=zid;
 		this.password=password;
 	} 
-	public AccountDetails CustomerDetails(String mail) {
+	public AccountDetails customerDetails(String mail) {
 		System.out.println("Enter the Name:");
 		this.name=scan.nextLine();
 		System.out.println("Enter the mobile number");
 		this.mobilenumber=scan.nextLong();
 		scan.nextLine();
 		System.out.println("Set the Password:(it must have one uppercase letter,one lowercase letter and numbers");
-		this.password=UserDetails.setpassword(name,mail);
+		this.password=UserDetails.setPassword(name,mail);
 		this.mail=mail;
 		System.out.println("Enter the Initial Real Currency Deposit:");
 		this.rc=scan.nextInt();
 		scan.nextLine();
 		return this;
 	}
-	public ArrayList<String> getrctransaction() {
+	public ArrayList<String> getRcTransaction() {
 		return rctranshistory;
 	}
-	public ArrayList<String> getzcointransaction() {
+	public ArrayList<String> getZcoinTransaction() {
 		return zcointranshistory;
 	}
-	public void changepassword(String password) {
+	public void changePassword(String password) {
 		this.password=password;
 	}
-	public String getpassword() {
+	public String getPassword() {
 		return password;
 	}
-	public String getname() {
+	public String getName() {
 		return name;
 	}
 	public void setZid(int Zid) {
@@ -137,38 +137,38 @@ class AccountDetails{
 	public int getZid() {
 		return Zid;
 	}
-	public String getmail() {
+	public String getMail() {
 		return mail;
 	}
-	public int getrc() {
+	public int getRc() {
 		return rc;
 	}
-	public int getzcoin() {
+	public int getZcoin() {
 		return zcoin;
 	}
-	public void transferzcoin(int amount) {
+	public void transferZcoin(int amount) {
 		zcoin-=amount;
 	}
-	public void receivezcoin(int amount) {
+	public void receiveZcoin(int amount) {
 		zcoin+=amount;
 	}
-	public void depositrc(int amount) {
+	public void depositRc(int amount) {
 		rc+=amount;
 		rctranshistory.add("Deposit amount: "+amount+" Amount Balance: "+rc);
 	}
-	public void withdrawlrc(int amount) {
+	public void withdrawlRc(int amount) {
 		rc-=amount;
 		rctranshistory.add("Withdrawl amount: "+amount+" Amount Balance: "+rc);
 	}
-	public void convertrctozcoin(int amount) {
+	public void convertRcToZcoin(int amount) {
 		zcoin+=(int)(amount*conversionrate);
 		rc-=amount;
 	}
-	public void changerate() {
+	public void changeRate() {
 		System.out.println("Enter the conversion rate RC to Zcoin");
 		conversionrate=scan.nextFloat();
 	}
-	public void convertzcointorc(int amount) {
+	public void convertZcoinToRc(int amount) {
 		commission+=(amount/conversionrate)*0.15f;
 		rc+=(int)((amount/conversionrate)-(amount/conversionrate)*0.15f);
 		zcoin-=amount;
@@ -176,17 +176,17 @@ class AccountDetails{
 }
 class UserDetails extends ZCoinExchange{
 	static Scanner scan=new Scanner(System.in);
-	public static void getuserdetails(String log) {
+	public static void getUserDetails(String log) {
 		System.out.println("Enter the ZID:");
 		int zid=scan.nextInt();
 		if(account.get(log).getZid()==zid) {
-			System.out.println("RC Balance: "+account.get(log).getrc()+"ZCoin Balance: "+account.get(log).getzcoin());
+			System.out.println("RC Balance: "+account.get(log).getRc()+"ZCoin Balance: "+account.get(log).getZcoin());
 		}
 		else {
 			System.out.println("Invalid Zid");
 		}
 	}
-	public static String setpassword(String name,String mail) {
+	public static String setPassword(String name,String mail) {
 		String password="";
 		while(!Pattern.matches("(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@#$&\\*\\.><]).{8,15}", password)) {
 			System.out.println("Password must contains 8 to 15 Character.Password must have one uppercase letter,one lowercase letter and numbers.\nEnter the Password");
@@ -194,45 +194,45 @@ class UserDetails extends ZCoinExchange{
 		}
 		return password;
 	}
-	public static void rctransaction(String mail) {
+	public static void rcTransaction(String mail) {
 		System.out.println("1.Deposit\n2.Withdrawl\n3.RC to ZCoin Conversion");
 		int des=scan.nextInt();
 		if(des==1) {
 			System.out.println("Enter the Deposit amount");
-			account.get(mail).depositrc(scan.nextInt());
+			account.get(mail).depositRc(scan.nextInt());
 		}
 		else if(des==2) {
 			System.out.println("Enter the Withdrawl amount");
 			int withdrawl=scan.nextInt();
-			if(withdrawl>account.get(mail).getrc()) {
+			if(withdrawl>account.get(mail).getRc()) {
 				System.out.println("Insufficient Money");
 			}
 			else {
-				account.get(mail).withdrawlrc(withdrawl);
+				account.get(mail).withdrawlRc(withdrawl);
 			}
 		}
 		else if(des==3) {
 			System.out.println("Enter the RC to ZCoin Coversion amount");
-			account.get(mail).convertrctozcoin(scan.nextInt());
+			account.get(mail).convertRcToZcoin(scan.nextInt());
 		}
 	}
-	public static void transactionhistory(String mail) {
+	public static void transactionHistory(String mail) {
 		System.out.println("1.RC Transaction History\n2.ZCoin Transaction History");
 		int trans=scan.nextInt();
 		if(trans==1) {
-			ArrayList <String>transhistory=new ArrayList<String>(account.get(mail).getrctransaction());
+			ArrayList <String>transhistory=new ArrayList<String>(account.get(mail).getRcTransaction());
 			for(String str:transhistory) {
 				System.out.println(str);
 			}
 		}
 		else if(trans==2) {
-			ArrayList <String>transhistory=new ArrayList<String>(account.get(mail).getzcointransaction());
+			ArrayList <String>transhistory=new ArrayList<String>(account.get(mail).getZcoinTransaction());
 			for(String str:transhistory) {
 				System.out.println(str);
 			}
 		}
 	}
-	public static void zcointransaction(String mail) {
+	public static void zcoinTransaction(String mail) {
 		System.out.println("1.ZCoinTransaction\n2.ZCoin to RC Conversion");
 		int des=scan.nextInt();
 		if(des==1) {
@@ -241,11 +241,11 @@ class UserDetails extends ZCoinExchange{
 			if(zidaccount.containsKey(zid)) {
 				System.out.println("Enter the amount to transfer");
 				int amount=scan.nextInt();
-				if(account.get(mail).getzcoin()>amount) {
-					account.get(mail).transferzcoin(amount);
-					zidaccount.get(account.get(mail).getZid()).transferzcoin(amount);
-					zidaccount.get(zid).receivezcoin(amount);
-					account.get(zidaccount.get(zid).getmail()).receivezcoin(amount);
+				if(account.get(mail).getZcoin()>amount) {
+					account.get(mail).transferZcoin(amount);
+					zidaccount.get(account.get(mail).getZid()).transferZcoin(amount);
+					zidaccount.get(zid).receiveZcoin(amount);
+					account.get(zidaccount.get(zid).getMail()).receiveZcoin(amount);
 				}
 				else {
 					System.out.println("You don't have enough ZCoin");
@@ -254,7 +254,7 @@ class UserDetails extends ZCoinExchange{
 		}
 		else if(des==2) {
 			System.out.println("Enter the amount to convert zcoin to rc for wihdrawl");
-			account.get(mail).convertzcointorc(scan.nextInt());
+			account.get(mail).convertZcoinToRc(scan.nextInt());
 		}
 		
 	}
@@ -269,7 +269,7 @@ class Login{
 			if(account.containsKey(mail)) {
 				System.out.println("Enter your Password:");
 				String pass=scan.nextLine();
-						if((account.get(mail).getpassword()).equals(pass)) {
+						if((account.get(mail).getPassword()).equals(pass)) {
 							if(account.get(mail).getZid()!=0) {
 								j=1;
 							}
@@ -294,15 +294,15 @@ class Login{
 				break;
 			}
 		}
-		System.out.println("Now Your are Logged in"+" Name: "+account.get(mail).getname()+" H_ID:"+account.get(mail).getZid());
+		System.out.println("Now Your are Logged in"+" Name: "+account.get(mail).getName()+" H_ID:"+account.get(mail).getZid());
 		return mail;
 }
 }
 class EmployeePanel extends ZCoinExchange{
 	static Scanner scan=new Scanner(System.in);
-	public static void idgiven(ArrayList<String>mail){
+	public static void idGiven(ArrayList<String>mail){
 		for(String mailid:mail){
-			System.out.println(account.get(mailid).getname()+" "+account.get(mailid).getmail()+"\n1.Accept\t2.reject");
+			System.out.println(account.get(mailid).getName()+" "+account.get(mailid).getMail()+"\n1.Accept\t2.reject");
 			int decision=scan.nextInt();
 			if(decision==1) {
 				System.out.println("Enter the ZID:");

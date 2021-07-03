@@ -17,16 +17,16 @@ public class ChessTournament {
 				match[i].setName(scan.nextLine());
 			}
 			TournamentRounds rounds= new TournamentRounds();
-			rounds.playmatch(num,match);
+			rounds.playMatch(num,match);
 			ArrayList<Float>pointstable=new ArrayList<Float>();
 			ArrayList<String>winners=new ArrayList<String>();
 			for(int i=0;i<num;i++) {
-				pointstable.add(match[i].getpoints());
+				pointstable.add(match[i].getPoints());
 			}
 			float max=Collections.max(pointstable);
 			for(int i=0;i<num;i++) {
-				if(match[i].getpoints()==max) {
-					winners.add(match[i].getname());
+				if(match[i].getPoints()==max) {
+					winners.add(match[i].getName());
 				}
 			}
 			System.out.println("The Winner of the chessTournament :");

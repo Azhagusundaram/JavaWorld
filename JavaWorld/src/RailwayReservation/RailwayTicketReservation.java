@@ -23,7 +23,7 @@ public class RailwayTicketReservation {
 					b[i]=new Booking();
 					b[i].book();
 					ct++;
-					if(b[i].getgender().equals("Female")||b[i].getage()>=60) {
+					if(b[i].getGender().equals("Female")||b[i].getAge()>=60) {
 						if(lower<=52) {
 							b[i].position("Lower"+lower);
 							lower+=3;
@@ -84,16 +84,16 @@ public class RailwayTicketReservation {
 				int j=scan.nextInt();
 				if(j<=63) {
 					if(rt>0) {
-						b[j].changebook(b[64].getname(),b[64].getage(),b[64].getgender(),b[64].getposition());
+						b[j].changeBook(b[64].getName(),b[64].getAge(),b[64].getGender(),b[64].getPosition());
 						if(wt>0) {
-							b[64].changebook(b[82].getname(),b[82].getage(),b[82].getgender(),b[82].getposition());
+							b[64].changeBook(b[82].getName(),b[82].getAge(),b[82].getGender(),b[82].getPosition());
 							wt--;
 						}
 					}
 				}
 				else if(j>=81) {
 					if(wt>0) {
-						b[j].changebook(b[82].getname(),b[82].getage(),b[82].getgender(),b[82].getposition());
+						b[j].changeBook(b[82].getName(),b[82].getAge(),b[82].getGender(),b[82].getPosition());
 						wt--;
 					}
 				}
@@ -104,7 +104,7 @@ public class RailwayTicketReservation {
 			}
 			if(s.equals("3")) {
 				for(int k=1;k<i;k++) {
-					System.out.println(b[k].getname()+" "+b[k].getage()+" "+b[k].getgender()+" "+b[k].getposition());
+					System.out.println(b[k].getName()+" "+b[k].getAge()+" "+b[k].getGender()+" "+b[k].getPosition());
 				}
 				int result=(i-1>81)?81:(i-1);
 				System.out.println("Number tickets booked:"+result);
@@ -137,16 +137,16 @@ class Booking{
 		scan.nextLine();
 		gender=scan.nextLine();
 	}
-	public String getname() {
+	public String getName() {
 		return name;
 	}
-	public int getage() {
+	public int getAge() {
 		return age;
 	}
-	public String getgender() {
+	public String getGender() {
 		return gender;
 	}
-	public void changebook(String name1,int age1,String gender1,String pos1){
+	public void changeBook(String name1,int age1,String gender1,String pos1){
 		name=name1;
 		age=age1;
 		gender=gender1;
@@ -155,7 +155,7 @@ class Booking{
 	public void position(String pos) {
 		position=pos;
 	}
-	public String getposition() {
+	public String getPosition() {
 		return position;
 	}
 }

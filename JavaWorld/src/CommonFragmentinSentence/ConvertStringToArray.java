@@ -2,7 +2,7 @@ package CommonFragmentinSentence;
 import java.util.ArrayList;
 public class ConvertStringToArray
 {
-	public static ArrayList<String> stringtowords(String str)
+	public static ArrayList<String> stringToWords(String str)
 	{
 		ArrayList<String> words= new ArrayList<String>();
 		int j=0;

@@ -14,7 +14,7 @@ public class Sudoku {
 		for(int i=0;i<3;i++) {
 			int col=2;
 			for(int j=0;j<3;j++) {
-				if(sub.submatrix(mat,row,col))
+				if(sub.subMatrix(mat,row,col))
 					count++;
 				col=col+3;
 			}
@@ -22,11 +22,11 @@ public class Sudoku {
 		}
 		CheckWhole full=new CheckWhole();
 		for(int i=0;i<9;i++) {
-			if(full.entirecolumn(mat,i))
+			if(full.entireColumn(mat,i))
 				colcount++;	
 		}
 		for(int i=0;i<9;i++) {
-			if(full.entirerow(mat,i))
+			if(full.entireRow(mat,i))
 				rowcount++;
 		}
 		if(count==9&&colcount==9&&rowcount==9)

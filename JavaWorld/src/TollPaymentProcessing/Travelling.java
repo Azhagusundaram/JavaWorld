@@ -9,7 +9,7 @@ public class Travelling{
 		String vip,vehiclenumber;
 		ArrayList<String>tollscrossed=new ArrayList<>();
 		int amount=0;
-		public void getdetails() {
+		public void getDetails() {
 				System.out.println("Enter the Starting point\n1.Sivaganga 2.Melur 3.Trichy 4.Perambalur\n5.Villupuram 6.Sengalpattu 7.Tambaram 8.Chennai");
 				start=scan.nextInt();
 				System.out.println("Enter the Destination Point\n1.Sivaganga 2.Melur 3.Trichy 4.Perambalur\n5.Villupuram 6.Sengalpattu 7.Tambaram 8.Chennai");
@@ -23,35 +23,35 @@ public class Travelling{
 				System.out.println("Is it a VIP Traveller(y/n)");
 				vip=scan.nextLine();
 			}
-		public void settolls(ArrayList<String> journeytolls) {
+		public void setTolls(ArrayList<String> journeytolls) {
 			tollscrossed.addAll(journeytolls);
 		}
-		public ArrayList<String> gettolls() {
+		public ArrayList<String> getTolls() {
 			return tollscrossed;
 		}
-		public int getstart() {
+		public int getStart() {
 			return start;
 		}
-		public int getdest() {
+		public int getDest() {
 			return dest;
 		}
-		public String getvip() {
+		public String getVip() {
 			return vip;
 		}
-		public int getvehiclenum() {
+		public int getVehicleNum() {
 			return vehicle;
 		}
-		public String getvehicle() {
+		public String getVehicle() {
 			String []vehicles=new String[] {"Car/jeep/van","LCV","Bus/Truck","Upto 3 Axle","Above 3 Axle/HCM"};
 			return vehicles[vehicle-1];
 		}
-		public void paidamount(int amt) {
+		public void paidAmount(int amt) {
 				amount=amount+amt;
 		}
-		public int getamount() {
+		public int getAmount() {
 			return amount;
 		}
-		public String getvehiclenumber() {
+		public String getVehicleNumber() {
 			return vehiclenumber;
 		}
 }

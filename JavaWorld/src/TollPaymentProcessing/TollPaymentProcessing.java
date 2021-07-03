@@ -25,9 +25,9 @@ public class TollPaymentProcessing {
 		String decision=scan.nextLine();
 		while(decision.equals("y")) {
 			toll.add(new Travelling());
-			toll.get(num).getdetails();
-			int begin=toll.get(num).getstart();
-			int end=toll.get(num).getdest();
+			toll.get(num).getDetails();
+			int begin=toll.get(num).getStart();
+			int end=toll.get(num).getDest();
 			ArrayList<String>journeystops=new ArrayList<String>();
 			ArrayList<String>tollscrossed=new ArrayList<String>();
 			ArrayList<Tolls>journeytolls=new ArrayList<Tolls>();
@@ -42,15 +42,15 @@ public class TollPaymentProcessing {
 					}
 				}
 			}
-			toll.get(num).settolls(tollscrossed);
+			toll.get(num).setTolls(tollscrossed);
 			for(Tolls str:journeytolls) {
-				String s=str.gettollname();
+				String s=str.getTollName();
 				alltolls.add(new Tolls(s));
-				alltolls.get(ind).setdetails(toll.get(num).getvehiclenumber(),toll.get(num).getvehiclenum()-1,str.gettollname(),toll.get(num).getvip());
-				toll.get(num).paidamount(alltolls.get(ind).getvehicleamount());
+				alltolls.get(ind).setDetails(toll.get(num).getVehicleNumber(),toll.get(num).getVehicleNum()-1,str.getTollName(),toll.get(num).getVip());
+				toll.get(num).paidAmount(alltolls.get(ind).getVehicleAmount());
 				ind++;
 			}
-			System.out.println("Amount paid:"+toll.get(num).getamount());
+			System.out.println("Amount paid:"+toll.get(num).getAmount());
 			System.out.println("Does any vehicle travel between Sivaganga and Chennai(y/n)");
 			decision=scan.nextLine();
 			num++;
@@ -58,8 +58,8 @@ public class TollPaymentProcessing {
 		System.out.println("Do u want individual details of all vehicles?(y/n)");
 		if(scan.nextLine().equals("y")) {
 			for(Travelling t:toll) {
-				System.out.println("Vehicle Number:"+t.getvehiclenumber()+"\tVehicle Type:"+t.getvehicle()+"\tStarting point:"+stops[t.getstart()-1]+"\t Destination point:"+stops[t.getdest()-1]+"\tAmount Paid:"+t.getamount()+"\nTolls in the journey");			
-				System.out.println(t.gettolls());
+				System.out.println("Vehicle Number:"+t.getVehicleNumber()+"\tVehicle Type:"+t.getVehicle()+"\tStarting point:"+stops[t.getStart()-1]+"\t Destination point:"+stops[t.getDest()-1]+"\tAmount Paid:"+t.getAmount()+"\nTolls in the journey");			
+				System.out.println(t.getTolls());
 			}
 		}
 		System.out.println("Do you want the individual details of all the Tolls?(y/n)");
@@ -68,12 +68,12 @@ public class TollPaymentProcessing {
 			for(String str:tolls) {
 				System.out.println("\n\t"+str+" Toll");
 				for(Tolls t:alltolls) {
-					if(str.equals(t.gettollname())) {
-						System.out.println("Vehicle Number :"+t.getvehiclenumber()+"\tAmount Paid:"+t.getvehicleamount());
+					if(str.equals(t.getTollName())) {
+						System.out.println("Vehicle Number :"+t.getVehicleNumber()+"\tAmount Paid:"+t.getVehicleAmount());
 						index=alltolls.indexOf(t);
 					}
 				}
-				System.out.println("Total Amount Paid in "+str+" Toll : "+alltolls.get(index).gettotalamount(index1));
+				System.out.println("Total Amount Paid in "+str+" Toll : "+alltolls.get(index).getTotalAmount(index1));
 				index1++;
 			}
 		}
@@ -93,7 +93,7 @@ class Tolls{
 	public Tolls(String name) {
 		this.tollname=name;
 		}
-	public void setdetails(String vehiclenum,int amt,String str,String vip) {
+	public void setDetails(String vehiclenum,int amt,String str,String vip) {
 		vehiclenumber=vehiclenum;
 		float dis=1f;
 		if(vip.equals("y")) {dis=0.8f;}
@@ -103,16 +103,16 @@ class Tolls{
 		if(str.equals("Villupuram")) {this.vehicleamount=(int)(dis*Villupuram.get(amt));totalamount[2]=totalamount[2]+vehicleamount;}
 		if(str.equals("Tambaram")) {this.vehicleamount=(int)(dis*Tambaram.get(amt));totalamount[3]=totalamount[3]+vehicleamount;}
 	}
-	public String gettollname() {
+	public String getTollName() {
 		return tollname;
 	}
-	public String getvehiclenumber() {
+	public String getVehicleNumber() {
 		return vehiclenumber;
 	}
-	public int getvehicleamount() {
+	public int getVehicleAmount() {
 		return vehicleamount;
 	}
-	public int gettotalamount(int i) {
+	public int getTotalAmount(int i) {
 		return totalamount[i];
 	}
 }

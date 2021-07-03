@@ -9,8 +9,8 @@ public class CommonFragment
 			str1=str1+str[i]+" ";
 		}
 		String str2=str[0];
-		ArrayList<String>words=ConvertStringToArray.stringtowords(str2);
-		ArrayList<String>fullwords=ConvertStringToArray.stringtowords(str1);
+		ArrayList<String>words=ConvertStringToArray.stringToWords(str2);
+		ArrayList<String>fullwords=ConvertStringToArray.stringToWords(str1);
 		for(String k:words){
 			int count=0;
 			for(int i=0;i<fullwords.size();i++){

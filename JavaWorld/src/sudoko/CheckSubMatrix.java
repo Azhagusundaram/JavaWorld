@@ -1,7 +1,7 @@
 package sudoko;
 
 public class CheckSubMatrix {
-	public boolean submatrix(int[][] mat,int row,int col) {
+	public boolean subMatrix(int[][] mat,int row,int col) {
 		String str="123456789";
 		for(int i=row-2;i<=row;i++) {
 			for(int j=col-2;j<=col;j++) {

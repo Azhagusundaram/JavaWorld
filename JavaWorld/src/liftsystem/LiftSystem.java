@@ -12,7 +12,7 @@ public class LiftSystem {
 			System.out.println("\nThere are 5 lifts. lift 1 and lift 2 run between 0 to 5th floor,lift 4 and lift 5 run between 0 and 6th floor to 10th floor and lift 3 run between 0 to 10th floor");
 			System.out.println("1.travel 2. exit");
 			l=scan.nextInt();
-			Lift.getinput();
+			Lift.getInput();
 			Lift.print();
 		}
 	}
@@ -29,7 +29,7 @@ class Lift extends LiftSystem{
 			lifts.add(new Lift("lift "+(i+1)));
 		}
 	}
-	public void changeposition(int position) {
+	public void changePosition(int position) {
 		this.position=position;
 	}
 	public static void print() {
@@ -42,7 +42,7 @@ class Lift extends LiftSystem{
 		System.out.print("\t"+lifts.get(i).position);
 	}
 	}
-	public static void getinput() {
+	public static void getInput() {
 		System.out.println("\nEnter the your starting and destination position");
 		int start=scan.nextInt();
 		int dest=scan.nextInt();
@@ -107,7 +107,7 @@ class Lift extends LiftSystem{
 		};
 		lifts.sort(com);
 		Lift selectedlift=lifts.get(0);
-		selectedlift.changeposition(dest);
+		selectedlift.changePosition(dest);
 		lifts.sort(comname);
 		
 	}

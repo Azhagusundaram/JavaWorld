@@ -6,18 +6,18 @@ public class PlayerDetails {
 		public void setName(String name1) {
 			name=name1;
 		}		
-		public String getname() {
+		public String getName() {
 			return name;
 		}
-		public void addpoints(float add) {
+		public void addPoints(float add) {
 			point=point+add;
 		}
-		public float getpoints() {
+		public float getPoints() {
 			return point;
 		}
-		public static int decidewinner(int i,int j, PlayerDetails[] match) {
-			System.out.print("1."+match[i].getname());
-			System.out.println("2."+match[j].getname());
+		public static int decideWinner(int i,int j, PlayerDetails[] match) {
+			System.out.print("1."+match[i].getName());
+			System.out.println("2."+match[j].getName());
 			System.out.println("who is winner? 1 or 2,if tied enter 3");
 			Scanner scan = new Scanner(System.in);
 			int won=scan.nextInt();
@@ -27,12 +27,12 @@ public class PlayerDetails {
 			else if(won==3) return 3;
 			return 0;
 		}
-		public static void setpoints(int win,PlayerDetails[] match,int k,int l) {
-			if(win==1) match[k].addpoints(1);
-			else if(win==2) match[l].addpoints(1);
+		public static void setPoints(int win,PlayerDetails[] match,int k,int l) {
+			if(win==1) match[k].addPoints(1);
+			else if(win==2) match[l].addPoints(1);
 			else if(win==3) {
-				match[k].addpoints(0.5f);
-				match[l].addpoints(0.5f);
+				match[k].addPoints(0.5f);
+				match[l].addPoints(0.5f);
 			}
 		}
 }
