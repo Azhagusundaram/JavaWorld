@@ -1,4 +1,4 @@
-package ShortestTimeDuration;
+package com.shortesttimeduration;
 import java.util.Scanner;
 public class TestRunner
 {

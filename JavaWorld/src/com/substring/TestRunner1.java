@@ -1,4 +1,4 @@
-package SubStringin2D;
+package com.substring;
 public class TestRunner1 {
 
 	public static void main(String[] args) {

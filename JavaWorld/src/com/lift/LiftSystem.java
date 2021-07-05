@@ -1,4 +1,4 @@
-package liftsystem;
+package com.lift;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;

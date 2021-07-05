@@ -1,4 +1,4 @@
-package TollPaymentProcessing;
+package com.tollgate;
 
 import java.util.ArrayList;
 import java.util.Scanner;

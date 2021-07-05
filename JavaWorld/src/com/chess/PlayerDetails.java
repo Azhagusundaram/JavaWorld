@@ -1,4 +1,4 @@
-package ChessTournament;
+package com.chess;
 import java.util.Scanner;
 public class PlayerDetails {
 		String name;

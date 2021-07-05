@@ -1,4 +1,4 @@
-package CommonFragmentinSentence;
+package com.commonfragment;
 import java.util.ArrayList;
 public class CommonFragment
 {

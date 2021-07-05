@@ -1,4 +1,4 @@
-package sudoko;
+package com.sudoko;
 
 public class CheckSubMatrix {
 	public boolean subMatrix(int[][] mat,int row,int col) {

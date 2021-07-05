@@ -1,4 +1,4 @@
-package SubStringin2D;
+package com.substring;
 public class SubStringin2D {
 	public void check(String str1,String str2) {
 		int len=str1.length();

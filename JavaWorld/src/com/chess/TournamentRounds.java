@@ -1,4 +1,4 @@
-package ChessTournament;
+package com.chess;
 public class TournamentRounds {
 	int win;
 	public void playMatch(int num,PlayerDetails[] match) {

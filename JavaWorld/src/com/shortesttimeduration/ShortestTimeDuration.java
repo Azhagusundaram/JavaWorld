@@ -1,4 +1,4 @@
-package ShortestTimeDuration;
+package com.shortesttimeduration;
 import java.util.ArrayList;
 public class ShortestTimeDuration{
 	public void shortTime(String []times,int num){

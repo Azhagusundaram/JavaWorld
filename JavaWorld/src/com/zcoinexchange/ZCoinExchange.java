@@ -1,4 +1,4 @@
-package ZCoin_Exchange;
+package com.zcoinexchange;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;

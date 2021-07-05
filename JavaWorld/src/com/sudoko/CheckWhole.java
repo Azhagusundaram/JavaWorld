@@ -1,4 +1,4 @@
-package sudoko;
+package com.sudoko;
 public class CheckWhole {
 	public boolean entireColumn(int [][]mat,int col) {
 		String str="123456789";

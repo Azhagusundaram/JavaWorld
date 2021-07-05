@@ -1,4 +1,4 @@
-package RailwayReservation;
+package com.ticket;
 import java.util.Scanner;
 public class RailwayTicketReservation {
 

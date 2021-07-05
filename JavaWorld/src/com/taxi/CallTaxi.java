@@ -1,4 +1,4 @@
-package CallTaxiBooking;
+package com.taxi;
 
 import java.util.ArrayList;
 import java.util.Collections;
