@@ -1,0 +1,29 @@
+package com.taxi;
+public class TaxiDetails{
+    String position;
+    int time;
+    String taxiname;
+    public TaxiDetails(String name) {
+        position="A";
+        time=0;
+        taxiname=name;
+    }
+    public String getTaxiName() {
+        return taxiname;
+    }
+    public String getPosition() {
+        return position;
+    }
+    public int getTime() {
+        return time;
+    }
+    public void setTime(int pickuptime,int diff) {
+        time=pickuptime+diff;
+        if(time>=24) {
+            time=24-time;
+        }
+    }
+    public void setPosition(String pos) {
+        position=pos;
+    }
+}
