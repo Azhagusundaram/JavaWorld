@@ -2,14 +2,14 @@ package com.taxi;
 public class TaxiDetails{
     String position;
     int time;
-    String taxiname;
+    String taxiName;
     public TaxiDetails(String name) {
         position="A";
         time=0;
-        taxiname=name;
+        taxiName =name;
     }
     public String getTaxiName() {
-        return taxiname;
+        return taxiName;
     }
     public String getPosition() {
         return position;
@@ -17,8 +17,8 @@ public class TaxiDetails{
     public int getTime() {
         return time;
     }
-    public void setTime(int pickuptime,int diff) {
-        time=pickuptime+diff;
+    public void setTime(int pickUpTime, int diff) {
+        time= pickUpTime +diff;
         if(time>=24) {
             time=24-time;
         }

@@ -1,0 +1,38 @@
+package com.taxi;
+
+import java.util.ArrayList;
+
+public class BookingDetails extends CallTaxi{
+    int pickUpTime, dropTime,amount;
+    String start,dest, customerName;
+    static ArrayList<BookingDetails>taxi1=new ArrayList<>();
+    static ArrayList<BookingDetails>taxi2=new ArrayList<>();
+    static ArrayList<BookingDetails>taxi3=new ArrayList<>();
+    static ArrayList<BookingDetails>taxi4=new ArrayList<>();
+    public BookingDetails(String name,int pickup,int drop,int amt,String startpoint,String destpoint) {
+        customerName =name;
+        pickUpTime =pickup;
+        dropTime =drop;
+        amount=amt;
+        start=startpoint;
+        dest=destpoint;
+    }
+    public static ArrayList<BookingDetails> getLists(String taxi, int i) {
+        if(taxi.equals("Taxi 1")) {
+            taxi1.add(new BookingDetails(customer.get(0).getCustomerName(),customer.get(0).getTime(),allTaxi.get(i).getTime(),customer.get(0).getAmount(),customer.get(0).getStart(),customer.get(0).getDest()));
+            return taxi1;
+        }
+        else if(taxi.equals("Taxi 2")) {
+            taxi2.add(new BookingDetails(customer.get(0).getCustomerName(),customer.get(0).getTime(),allTaxi.get(i).getTime(),customer.get(0).getAmount(),customer.get(0).getStart(),customer.get(0).getDest()));
+            return taxi2;
+        }
+        else if(taxi.equals("Taxi 3")) {
+            taxi3.add(new BookingDetails(customer.get(0).getCustomerName(),customer.get(0).getTime(),allTaxi.get(i).getTime(),customer.get(0).getAmount(),customer.get(0).getStart(),customer.get(0).getDest()));
+            return taxi3;
+        }
+        else {
+            taxi4.add(new BookingDetails(customer.get(0).getCustomerName(),customer.get(0).getTime(),allTaxi.get(i).getTime(),customer.get(0).getAmount(),customer.get(0).getStart(),customer.get(0).getDest()));
+            return taxi4;
+        }
+    }
+}

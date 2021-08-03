@@ -1,0 +1,17 @@
+package com.zcoinexchange;
+public class EmployeePanel extends ZCoinExchange{
+    static Scanner scan=new Scanner(System.in);
+    public static void idGiven(ArrayList<String>mail){
+        for(String mailid:mail){
+            System.out.println(account.get(mailid).getName()+" "+account.get(mailid).getMail()+"\n1.Accept\t2.reject");
+            int decision=scan.nextInt();
+            if(decision==1) {
+                System.out.println("Enter the ZID:");
+                zidAccount.put(scan.nextInt(),account.get(mailid));
+            }
+            else if(decision==2) {
+                account.remove(mailid);
+            }
+        }
+    }
+}

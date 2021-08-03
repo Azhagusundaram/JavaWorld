@@ -1,0 +1,42 @@
+package com.taxi;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
+
+public class TaxiBooking extends CallTaxi{
+public static void checkTaxi() {
+        ArrayList<Integer> diff=new ArrayList<>();
+        for(int i=0;i<num;i++) {
+        if(allTaxi.get(i).getTime()<=customer.get(0).getTime()) {
+        diff.add(Math.abs(allTaxi.get(i).getPosition().charAt(0)-(customer.get(0).getStart().charAt(0))));
+        }
+        else {
+        diff.add(100);
+        }
+        }
+        int distance=diff.indexOf(Collections.min(diff));
+        if((Collections.min(diff))<100) {
+        System.out.println("Your Booking is Confirmed with taxi Number "+allTaxi.get(distance).getTaxiName());
+        customer.get(0).setAmount(customer.get(0).getStart(),customer.get(0).getDest());
+        System.out.println("Amount for Journey is "+customer.get(0).getAmount());
+        allTaxi.get(distance).setTime(customer.get(0).getTime(),Math.abs(customer.get(0).getStart().charAt(0)-customer.get(0).getDest().charAt(0)));
+        allTaxi.get(distance).setPosition(customer.get(0).getDest());
+        bookings.put(allTaxi.get(distance).getTaxiName(),BookingDetails.getLists(allTaxi.get(distance).getTaxiName(), distance));
+        customer.remove(0);
+        }
+        else {
+        System.out.println("Sorry!Bookings is Fulled");
+        customer.remove(0);
+        }
+        }
+public static void taxiDetails() {
+        System.out.println("Customer Name    PickupTime    Droptime    Starting Point    Destination Point    Amount");
+        for(Map.Entry<String, ArrayList<BookingDetails>> lists:bookings.entrySet()) {
+        System.out.println(lists.getKey());
+        for(BookingDetails book:lists.getValue()) {
+        System.out.println(book.customerName+" "+book.pickUpTime+" "+book.dropTime+" "+book.start+" "+book.dest+" "+book.amount);
+        }
+        }
+        }
+        }

@@ -1,0 +1,40 @@
+package com.zcoinexchange;
+public class Login{
+    static Scanner scan=new Scanner(System.in);
+    public static String login(HashMap <String,AccountDetails>account) {
+        System.out.println("Enter your Email Id:");
+        String mail=scan.nextLine();
+        int j=0;
+        while(j==0) {
+            if(account.containsKey(mail)) {
+                System.out.println("Enter your Password:");
+                String pass=scan.nextLine();
+                if((account.get(mail).getPassword()).equals(pass)) {
+                    if(account.get(mail).getZid()!=0) {
+                        j=1;
+                    }
+                    else {
+                        System.out.println("Account in Waiting List");
+                        break;
+                    }
+                }
+                else {
+                    System.out.println("Invalid password\nExit Enter 2");
+                    System.out.println("Enter Your Mail ID:");
+                    mail=scan.nextLine();
+                }
+            }
+            else
+            {
+                System.out.println("Exit Enter 2\nEnter the correct Mail ID:");
+                mail=scan.nextLine();
+            }
+            if(mail=="2") {
+                j=2;
+                break;
+            }
+        }
+        System.out.println("Now Your are Logged in"+" Name: "+account.get(mail).getName()+" H_ID:"+account.get(mail).getZid());
+        return mail;
+    }
+}

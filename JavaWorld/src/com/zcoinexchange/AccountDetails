@@ -1,0 +1,86 @@
+package com.zcoinexchange;
+public class AccountDetails{
+    String name,password,mail;
+    int zid,rc,zcoin;
+    long mobilenumber;
+    static float conversionrate=2f,commission;
+    ArrayList<String> rcTransactionHistory =new ArrayList<String>();
+    ArrayList<String> zcoinTransactionHistory =new ArrayList<String>();
+    static Scanner scan=new Scanner(System.in);
+    public void setDetails(String name,int zid,String password) {
+        this.name=name;
+        this.zid=zid;
+        this.password=password;
+    }
+    public AccountDetails customerDetails(String mail) {
+        System.out.println("Enter the Name:");
+        this.name=scan.nextLine();
+        System.out.println("Enter the mobile number");
+        this.mobilenumber=scan.nextLong();
+        scan.nextLine();
+        System.out.println("Set the Password:(it must have one uppercase letter,one lowercase letter and numbers");
+        this.password=UserDetails.setPassword(name,mail);
+        this.mail=mail;
+        System.out.println("Enter the Initial Real Currency Deposit:");
+        this.rc=scan.nextInt();
+        scan.nextLine();
+        return this;
+    }
+    public ArrayList<String> getRcTransaction() {
+        return rcTransactionHistory;
+    }
+    public ArrayList<String> getZcoinTransaction() {
+        return zcoinTransactionHistory;
+    }
+    public void changePassword(String password) {
+        this.password=password;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setZid(int zid) {
+        this.zid=zid;
+    }
+    public int getZid() {
+        return zid;
+    }
+    public String getMail() {
+        return mail;
+    }
+    public int getRc() {
+        return rc;
+    }
+    public int getZcoin() {
+        return zcoin;
+    }
+    public void transferZcoin(int amount) {
+        zcoin-=amount;
+    }
+    public void receiveZcoin(int amount) {
+        zcoin+=amount;
+    }
+    public void depositRc(int amount) {
+        rc+=amount;
+        rcTransactionHistory.add("Deposit amount: "+amount+" Amount Balance: "+rc);
+    }
+    public void withdrawlRc(int amount) {
+        rc-=amount;
+        rcTransactionHistory.add("Withdrawl amount: "+amount+" Amount Balance: "+rc);
+    }
+    public void convertRcToZcoin(int amount) {
+        zcoin+=(int)(amount*conversionrate);
+        rc-=amount;
+    }
+    public void changeRate() {
+        System.out.println("Enter the conversion rate RC to Zcoin");
+        conversionrate=scan.nextFloat();
+    }
+    public void convertZcoinToRc(int amount) {
+        commission+=(amount/conversionrate)*0.15f;
+        rc+=(int)((amount/conversionrate)-(amount/conversionrate)*0.15f);
+        zcoin-=amount;
+    }
+}

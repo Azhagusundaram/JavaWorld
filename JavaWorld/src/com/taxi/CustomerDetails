@@ -1,0 +1,37 @@
+package com.taxi;
+public class CustomerDetails{
+    String customerName,start,dest;
+    int time;
+    int amount;
+    public CustomerDetails() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter the Customer Name:");
+        customerName =scan.nextLine();
+        System.out.println("Enter the Pickup Point:");
+        start=scan.nextLine();
+        System.out.println("Enter the Stop Point:");
+        dest=scan.nextLine();
+        System.out.println("Enter the PickupTime:");
+        time=scan.nextInt();
+
+    }
+    public String getCustomerName() {
+        return customerName;
+    }
+    public String getStart() {
+        return start;
+    }
+    public String getDest() {
+        return dest;
+    }
+    public int getTime() {
+        return time;
+    }
+    public void setAmount(String start,String dest) {
+        int n=Math.abs(start.charAt(0)-dest.charAt(0));
+        amount=n*15*10+50;
+    }
+    public int getAmount() {
+        return amount;
+    }
+}
